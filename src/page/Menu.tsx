@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Tabs, TabsContent } from '@/components/ui/tabs';
-import { MapPin, Phone, Clock, Waves, Fish, Utensils, Anchor, Shell, Pizza, ChefHat, Sun, Soup, Salad, Flame, Sandwich, Sparkles } from 'lucide-react';
+import { MapPin, Phone, Clock, Waves, Fish, Utensils, Shrimp, Anchor, Shell, Pizza, ChefHat, Sun, Coffee, Salad, Sandwich, Sparkles, Beer , Wine, Soup, BottleWine, Cake, Martini} from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+
 
 interface MenuItem {
   id: string;
@@ -15,486 +16,1450 @@ interface MenuItem {
 }
 
 const menuData: MenuItem[] = [
-  // ANTIPASTI E STUZZICHERIA - CARNE
+  // BEVANDE
   {
     id: '1',
-    name: 'Prosciutto Crudo',
-    description: 'Prosciutto crudo stagionato servito con pane tostato',
-    price: 8.00,
-    category: 'antipasti-carne',
+    name: 'Acqua 0,5L',
+    description: 'dssds',
+    price: 1.10,
+    category: 'Bevande',
     available: true
   },
   {
     id: '2',
-    name: 'Prosciutto Crudo e Melone',
-    description: 'Prosciutto crudo con melone fresco di stagione',
-    price: 10.00,
-    category: 'antipasti-carne',
+    name: 'Acqua 1L',
+    description: '',
+    price: 2.20,
+    category: 'Bevande',
     available: true
   },
   {
     id: '3',
-    name: 'Caprese',
-    description: 'Mozzarella di bufala, pomodoro fresco e basilico',
-    price: 8.00,
-    category: 'antipasti-carne',
-    available: true,
-    allergens: ['latte']
+    name: 'Coca Cola 0,33L',
+    description: '',
+    price: 2.50,
+    category: 'Bevande',
+    available: true
   },
   {
     id: '4',
-    name: 'Caprese e Crudo',
-    description: 'Caprese con aggiunta di prosciutto crudo',
-    price: 10.00,
-    category: 'antipasti-carne',
-    available: true,
-    allergens: ['latte']
+    name: 'Coca Cola 1L',
+    description: '',
+    price: 6.00,
+    category: 'Bevande',
+    available: true
   },
   {
     id: '5',
-    name: 'Bruschetta al Pomodoro',
-    description: 'Bruschetta con pomodoro fresco, aglio e basilico',
-    price: 4.00,
-    category: 'antipasti-carne',
-    available: true,
-    allergens: ['glutine']
+    name: 'Fanta 0,33L',
+    description: '',
+    price: 2.50,
+    category: 'Bevande',
+    available: true
   },
   {
     id: '6',
-    name: 'Olive all\'Ascolana',
-    description: 'Olive ripiene di carne e fritte secondo tradizione marchigiana',
-    price: 6.00,
-    category: 'antipasti-carne',
-    available: true,
-    allergens: ['glutine', 'uova', 'latte']
+    name: 'Sprite 0,33L',
+    description: '',
+    price: 2.50,
+    category: 'Bevande',
+    available: true
   },
   {
     id: '7',
-    name: 'Patatine Fritte',
-    description: 'Patatine fritte croccanti servite calde',
+    name: 'Birra bot. Corona 0,33L',
+    description: '',
     price: 4.00,
-    category: 'antipasti-carne',
+    category: 'Birre',
+    available: true
+  },
+  {
+    id: '8',
+    name: 'Birra bot. Beck\'s 0,33L',
+    description: '',
+    price: 4.00,
+    category: 'Birre',
+    available: true
+  },
+  {
+    id: '9',
+    name: 'Birra bot. Tennet\'s 0,33L',
+    description: '',
+    price: 4.00,
+    category: 'Birre',
+    available: true
+  },
+  {
+    id: '10',
+    name: 'Birra bot. Ceres 0,33L',
+    description: '',
+    price: 4.00,
+    category: 'Birre',
+    available: true
+  },
+  {
+    id: '11',
+    name: 'Birra spina 0,3L',
+    description: '',
+    price: 3.50,
+    category: 'Birre',
+    available: true
+  },
+  {
+    id: '12',
+    name: 'Birra spina 0,5L',
+    description: '',
+    price: 5.50,
+    category: 'Birre',
+    available: true
+  },
+  {
+    id: '13',
+    name: 'Birra spina 1L',
+    description: '',
+    price: 11.00,
+    category: 'Birre',
+    available: true
+  },
+  {
+    id: '14',
+    name: 'Thè 0,5L',
+    description: '',
+    price: 2.50,
+    category: 'Bevande',
+    available: true
+  },
+  {
+    id: '15',
+    name: 'Lemon Soda 0,33L',
+    description: '',
+    price: 2.50,
+    category: 'Bevande',
+    available: true
+  },
+  {
+    id: '16',
+    name: 'Acqua Tonica',
+    description: '',
+    price: 3.00,
+    category: 'Bevande',
+    available: true
+  },
+  {
+    id: '17',
+    name: 'Schweppes Lemon',
+    description: '',
+    price: 3.00,
+    category: 'Bevande',
+    available: true
+  },
+
+  // CARTA DEI VINI - SPUMANTI E CHAMPAGNE
+  {
+    id: '18',
+    name: 'Champagne Joseph Perrier Cuvèe Royale Brut Rosè',
+    description: '',
+    price: 100.00,
+    category: 'Spumanti e Champagne',
+    available: true
+  },
+  {
+    id: '19',
+    name: 'Champagne Joseph Perrier Cuvèe Royale Brut',
+    description: '',
+    price: 80.00,
+    category: 'Spumanti e Champagne',
+    available: true
+  },
+  {
+    id: '20',
+    name: 'Cuvèe Prestige Franciacorta docg Cà del Bosco',
+    description: '',
+    price: 50.00,
+    category: 'Spumanti e Champagne',
+    available: true
+  },
+  {
+    id: '21',
+    name: 'Cuvèe Prestige Rosè Franciacortadocg Cà del bosco',
+    description: '',
+    price: 60.00,
+    category: 'Spumanti e Champagne',
+    available: true
+  },
+  {
+    id: '22',
+    name: 'Uberti Franciacorta docg rosè Francesco I',
+    description: '',
+    price: 45.00,
+    category: 'Spumanti e Champagne',
+    available: true
+  },
+  {
+    id: '23',
+    name: 'Passerina spumante brut Frontenac',
+    description: '',
+    price: 18.00,
+    category: 'Spumanti e Champagne',
+    available: true
+  },
+  {
+    id: '24',
+    name: 'Prosecco doc Sant\'Orsola',
+    description: '',
+    price: 20.00,
+    category: 'Spumanti e Champagne',
+    available: true
+  },
+
+  // CARTA DEI VINI - VINI BIANCHI
+  {
+    id: '25',
+    name: 'La Pettegola Vermentino igt Cantina Banfi',
+    description: '',
+    price: 23.00,
+    category: 'Vini Bianchi',
+    available: true
+  },
+  {
+    id: '26',
+    name: 'Fontanelle Chardonnay Cantina Banfi',
+    description: '',
+    price: 28.00,
+    category: 'Vini Bianchi',
+    available: true
+  },
+  {
+    id: '27',
+    name: 'Cortalto pecorino Colli Aprutini igt tenuta Cerulli Spinozzi',
+    description: '',
+    price: 18.00,
+    category: 'Vini Bianchi',
+    available: true
+  },
+  {
+    id: '28',
+    name: 'Nik passerina Colli Aprutini igt Frontenac',
+    description: '',
+    price: 14.00,
+    category: 'Vini Bianchi',
+    available: true
+  },
+
+  // CARTA DEI VINI - VINI ROSATI
+  {
+    id: '29',
+    name: 'Gruè Cerasuolo d\'Abruzzo doc tenuta Cerulli Spinozzi',
+    description: '',
+    price: 14.00,
+    category: 'Vini Rosati',
+    available: true
+  },
+  {
+    id: '30',
+    name: 'Nik Cerasuolo d\'Abruzzo doc Cantina Frontenac',
+    description: '',
+    price: 14.00,
+    category: 'Vini Rosati',
+    available: true
+  },
+  {
+    id: '31',
+    name: 'Torre dei beati Cerasuolo d\'Abruzzo doc',
+    description: '',
+    price: 25.00,
+    category: 'Vini Rosati',
+    available: true
+  },
+
+  // CARTA DEI VINI - VINI ROSSI
+  {
+    id: '32',
+    name: 'Gruè colline teramane docg tenuta Cerulli Spinozzi',
+    description: '',
+    price: 18.00,
+    category: 'Vini Rossi',
+    available: true
+  },
+
+  // CARTA DEI VINI - CALICI
+  {
+    id: '33',
+    name: 'Gruè Cerasuolo d\'Abruzzo doc tenuta Cerulli Spinozzi (Calice)',
+    description: '',
+    price: 5.00,
+    category: 'Calici',
+    available: true
+  },
+  {
+    id: '34',
+    name: 'Nik Cerasuolo d\'Abruzzo doc Cantina Frontenac (Calice)',
+    description: '',
+    price: 5.00,
+    category: 'Calici',
+    available: true
+  },
+  {
+    id: '35',
+    name: 'Torre dei beati Cerasuolo d\'Abruzzo doc (Calice)',
+    description: '',
+    price: 8.00,
+    category: 'Calici',
+    available: true
+  },
+  {
+    id: '36',
+    name: 'Passerina spumante brut Frontenac (Calice)',
+    description: '',
+    price: 5.00,
+    category: 'Calici',
+    available: true
+  },
+  {
+    id: '37',
+    name: 'Prosecco doc Sant\'Orsola (Calice)',
+    description: '',
+    price: 5.00,
+    category: 'Calici',
+    available: true
+  },
+  {
+    id: '38',
+    name: 'La Pettegola Vermentino igt Cantina Banfi (Calice)',
+    description: '',
+    price: 7.00,
+    category: 'Calici',
+    available: true
+  },
+  {
+    id: '39',
+    name: 'Fontanelle Chardonnay Cantina Banfi (Calice)',
+    description: '',
+    price: 9.00,
+    category: 'Calici',
+    available: true
+  },
+  {
+    id: '40',
+    name: 'Cortalto pecorino Colli Aprutini igt tenuta Cerulli Spinozzi (Calice)',
+    description: '',
+    price: 6.00,
+    category: 'Calici',
+    available: true
+  },
+  {
+    id: '41',
+    name: 'Nik passerina Colli Aprutini igt Frontenac (Calice)',
+    description: '',
+    price: 5.00,
+    category: 'Calici',
+    available: true
+  },
+  {
+    id: '42',
+    name: 'Gruè colline teramane docg tenuta Cerulli Spinozzi (Calice)',
+    description: '',
+    price: 6.00,
+    category: 'Calici',
+    available: true
+  },
+
+
+  // LISTINO CAFFETTERIA
+  {
+    id: '43',
+    name: 'Caffè',
+    description: '',
+    price: 1.30,
+    category: 'Caffetteria',
+    available: true
+  },
+  {
+    id: '44',
+    name: 'Caffè deca',
+    description: '',
+    price: 1.40,
+    category: 'Caffetteria',
+    available: true
+  },
+  {
+    id: '45',
+    name: 'Caffè macchiato',
+    description: '',
+    price: 1.40,
+    category: 'Caffetteria',
+    available: true
+  },
+  {
+    id: '46',
+    name: 'Caffè americano',
+    description: '',
+    price: 1.50,
+    category: 'Caffetteria',
+    available: true
+  },
+  {
+    id: '47',
+    name: 'Caffè corretto',
+    description: '',
+    price: 1.60,
+    category: 'Caffetteria',
+    available: true
+  },
+  {
+    id: '48',
+    name: 'Caffè moretto',
+    description: '',
+    price: 1.60,
+    category: 'Caffetteria',
+    available: true
+  },
+  {
+    id: '49',
+    name: 'Cappuccino',
+    description: '',
+    price: 1.70,
+    category: 'Caffetteria',
+    available: true
+  },
+  {
+    id: '50',
+    name: 'Latte macchiato',
+    description: '',
+    price: 2.00,
+    category: 'Caffetteria',
+    available: true
+  },
+  {
+    id: '51',
+    name: 'Latte bianco',
+    description: '',
+    price: 1.70,
+    category: 'Caffetteria',
+    available: true
+  },
+  {
+    id: '52',
+    name: 'Orzo',
+    description: '',
+    price: 1.70,
+    category: 'Caffetteria',
+    available: true
+  },
+  {
+    id: '53',
+    name: 'Ginseng',
+    description: '',
+    price: 1.80,
+    category: 'Caffetteria',
+    available: true
+  },
+  {
+    id: '54',
+    name: 'Cioccolata',
+    description: '',
+    price: 3.00,
+    category: 'Caffetteria',
+    available: true
+  },
+  {
+    id: '55',
+    name: 'Caffè shakerato',
+    description: '',
+    price: 3.50,
+    category: 'Caffetteria',
+    available: true
+  },
+  {
+    id: '56',
+    name: 'Caffè con ghiaccio',
+    description: '',
+    price: 1.50,
+    category: 'Caffetteria',
+    available: true
+  },
+  {
+    id: '57',
+    name: 'Caffè leccese',
+    description: '',
+    price: 2.50,
+    category: 'Caffetteria',
+    available: true
+  },
+
+  // LISTINO CAFFETTERIA - APERITIVO
+  {
+    id: '58',
+    name: 'Prosecco',
+    description: '',
+    price: 4.00,
+    category: 'Aperitivo',
+    available: true
+  },
+  {
+    id: '59',
+    name: 'Crodino',
+    description: '',
+    price: 3.50,
+    category: 'Aperitivo',
+    available: true
+  },
+  {
+    id: '60',
+    name: 'Cocktail San Pellegrino',
+    description: '',
+    price: 3.50,
+    category: 'Aperitivo',
+    available: true
+  },
+  {
+    id: '61',
+    name: 'Campari',
+    description: '',
+    price: 3.50,
+    category: 'Aperitivo',
+    available: true
+  },
+  {
+    id: '62',
+    name: 'Campari e prosecco',
+    description: '',
+    price: 5.00,
+    category: 'Aperitivo',
+    available: true
+  },
+  {
+    id: '63',
+    name: 'Aperol Spritz',
+    description: '',
+    price: 5.00,
+    category: 'Aperitivo',
+    available: true
+  },
+  {
+    id: '64',
+    name: 'Campari e spritz',
+    description: '',
+    price: 6.00,
+    category: 'Aperitivo',
+    available: true
+  },
+  {
+    id: '65',
+    name: 'Birra 0,33 bott.',
+    description: '',
+    price: 4.00,
+    category: 'Aperitivo',
+    available: true
+  },
+  {
+    id: '66',
+    name: 'Birra 0,3L - 0,5L',
+    description: '',
+    price: 3.50,
+    category: 'Aperitivo',
+    available: true
+  },
+  {
+    id: '67',
+    name: 'Birra 1L',
+    description: '',
+    price: 11.00,
+    category: 'Aperitivo',
+    available: true
+  },
+  {
+    id: '68',
+    name: 'Long drink',
+    description: '',
+    price: 7.00,
+    category: 'Aperitivo',
+    available: true
+  },
+  {
+    id: '69',
+    name: 'Pestati',
+    description: '',
+    price: 8.00,
+    category: 'Aperitivo',
+    available: true
+  },
+
+  // DESSERT
+  {
+    id: '70',
+    name: 'Sorbetto al limone',
+    description: '',
+    price: 4.00,
+    category: 'Dessert',
+    available: true
+  },
+  {
+    id: '71',
+    name: 'Cheesecake',
+    description: '',
+    price: 4.00,
+    category: 'Dessert',
+    available: true
+  },
+  {
+    id: '72',
+    name: 'Tiramisù',
+    description: '',
+    price: 4.00,
+    category: 'Dessert',
+    available: true
+  },
+  {
+    id: '73',
+    name: 'Tartufo bianco',
+    description: '',
+    price: 4.00,
+    category: 'Dessert',
+    available: true
+  },
+  {
+    id: '74',
+    name: 'Tartufo nero',
+    description: '',
+    price: 4.00,
+    category: 'Dessert',
+    available: true
+  },
+  {
+    id: '75',
+    name: 'Tartufo corretto al caffè bianco',
+    description: '',
+    price: 5.00,
+    category: 'Dessert',
+    available: true
+  },
+  {
+    id: '76',
+    name: 'Tartufo corretto al caffè nero',
+    description: '',
+    price: 5.00,
+    category: 'Dessert',
+    available: true
+  },
+
+  // ANTIPASTI E STUZZICHERIA - CARNE
+  {
+    id: '77',
+    name: 'Prosciutto crudo',
+    description: 'Prosciutto crudo stagionato',
+    price: 8.00,
+    category: 'Antipasti e Stuzzicheria - Carne',
+    available: true
+  },
+  {
+    id: '78',
+    name: 'Prosciutto crudo e melone',
+    description: 'Prosciutto crudo con melone fresco',
+    price: 10.00,
+    category: 'Antipasti e Stuzzicheria - Carne',
+    available: true
+  },
+  {
+    id: '79',
+    name: 'Caprese',
+    description: 'Mozzarella, pomodoro e basilico',
+    price: 8.00,
+    category: 'Antipasti e Stuzzicheria - Carne',
+    available: true,
+    allergens: ['Latte']
+  },
+  {
+    id: '80',
+    name: 'Caprese e crudo',
+    description: 'Caprese con aggiunta di prosciutto crudo',
+    price: 10.00,
+    category: 'Antipasti e Stuzzicheria - Carne',
+    available: true,
+    allergens: ['Latte']
+  },
+  {
+    id: '81',
+    name: 'Bruschetta al pomodoro',
+    description: 'Bruschetta con pomodoro fresco',
+    price: 4.00,
+    category: 'Antipasti e Stuzzicheria - Carne',
+    available: true,
+    allergens: ['Glutine']
+  },
+  {
+    id: '82',
+    name: 'Olive all\'ascolana',
+    description: 'Olive ripiene fritte',
+    price: 6.00,
+    category: 'Antipasti e Stuzzicheria - Carne',
+    available: true,
+    allergens: ['Glutine', 'Uova', 'Latte']
+  },
+  {
+    id: '83',
+    name: 'Patatine fritte',
+    description: 'Patatine fritte croccanti',
+    price: 4.00,
+    category: 'Antipasti e Stuzzicheria - Carne',
     available: true
   },
 
   // PRIMI - CARNE
   {
-    id: '8',
-    name: 'Tortellini al Pomodoro',
-    description: 'Tortellini freschi fatti in casa con sugo di pomodoro basilico',
+    id: '84',
+    name: 'Tortellini al pomodoro',
+    description: 'Tortellini freschi con sugo di pomodoro',
     price: 10.00,
-    category: 'primi-carne',
+    category: 'Primi - Carne',
     available: true,
-    allergens: ['glutine', 'uova', 'latte'],
+    allergens: ['Glutine', 'Uova', 'Latte'],
     specialPreparation: true
   },
   {
-    id: '9',
-    name: 'Tortellini al Ragù',
-    description: 'Tortellini freschi con ragù di carne tradizionale emiliano',
+    id: '85',
+    name: 'Tortellini al ragù',
+    description: 'Tortellini freschi con ragù di carne',
     price: 13.00,
-    category: 'primi-carne',
+    category: 'Primi - Carne',
     available: true,
-    allergens: ['glutine', 'uova', 'latte'],
+    allergens: ['Glutine', 'Uova', 'Latte'],
     specialPreparation: true
   },
   {
-    id: '10',
-    name: 'Gnocchi al Pomodoro',
-    description: 'Gnocchi di patate freschi con sugo di pomodoro e basilico',
+    id: '86',
+    name: 'Gnocchi/chitarrina al pomodoro',
+    description: 'Pasta fresca con sugo di pomodoro',
     price: 10.00,
-    category: 'primi-carne',
+    category: 'Primi - Carne',
     available: true,
-    allergens: ['glutine', 'uova', 'latte'],
+    allergens: ['Glutine', 'Uova', 'Latte'],
     specialPreparation: true
   },
   {
-    id: '11',
-    name: 'Chitarrina al Ragù',
-    description: 'Pasta fresca abruzzese con ragù di carne della casa',
+    id: '87',
+    name: 'Gnocchi/chitarrina al ragù',
+    description: 'Pasta fresca con ragù di carne',
     price: 12.00,
-    category: 'primi-carne',
+    category: 'Primi - Carne',
     available: true,
-    allergens: ['glutine', 'uova', 'latte'],
+    allergens: ['Glutine', 'Uova', 'Latte'],
     specialPreparation: true
   },
   {
-    id: '12',
-    name: 'Lasagna della Casa',
-    description: 'Lasagna tradizionale con ragù, besciamella e parmigiano',
+    id: '88',
+    name: 'Lasagna',
+    description: 'Lasagna della casa',
     price: 13.00,
-    category: 'primi-carne',
+    category: 'Primi - Carne',
     available: true,
-    allergens: ['glutine', 'uova', 'latte'],
+    allergens: ['Glutine', 'Uova', 'Latte'],
     specialPreparation: true
   },
   {
-    id: '13',
-    name: 'Spaghetti al Pomodoro',
-    description: 'Spaghetti con sugo di pomodoro fresco e basilico',
+    id: '89',
+    name: 'Spaghetti al pomodoro',
+    description: 'Spaghetti con sugo di pomodoro',
     price: 8.00,
-    category: 'primi-carne',
+    category: 'Primi - Carne',
     available: true,
-    allergens: ['glutine']
+    allergens: ['Glutine', 'Uova', 'Latte']
   },
 
   // SECONDI - CARNE
   {
-    id: '14',
-    name: 'Entrecote di Angus Argentino',
-    description: 'Entrecote di manzo alla griglia con rucola e scaglie di parmigiano',
+    id: '90',
+    name: 'Entrecote di angus argentino con rucola e parmigiano',
+    description: 'Entrecote di manzo con rucola e parmigiano',
     price: 22.00,
-    category: 'secondi-carne',
+    category: 'Secondi - Carne',
     available: true,
-    allergens: ['latte']
+    allergens: ['Latte']
   },
   {
-    id: '15',
-    name: 'Cotoletta alla Milanese',
-    description: 'Cotoletta di vitello impanata e fritta con patatine',
+    id: '91',
+    name: 'Cotoletta alla milanese con patatine fritte',
+    description: 'Cotoletta impanata con patatine',
     price: 10.00,
-    category: 'secondi-carne',
+    category: 'Secondi - Carne',
     available: true,
-    allergens: ['glutine', 'uova', 'latte']
+    allergens: ['Glutine', 'Uova', 'Latte']
   },
 
   // CONTORNI
   {
-    id: '16',
-    name: 'Insalata Verde Mista',
-    description: 'Insalata di stagione con lattuga, rucola e pomodorini',
+    id: '92',
+    name: 'Insalata verde',
+    description: 'Insalata mista verde',
     price: 4.00,
-    category: 'contorni',
+    category: 'Contorni',
     available: true
   },
   {
-    id: '17',
-    name: 'Pomodoro a Fette',
-    description: 'Pomodoro fresco a fette con origano e olio extravergine',
+    id: '93',
+    name: 'Pomodoro a fette',
+    description: 'Pomodoro fresco a fette',
     price: 3.50,
-    category: 'contorni',
+    category: 'Contorni',
     available: true
   },
   {
-    id: '18',
-    name: 'Verdure Grigliate',
-    description: 'Melanzane, zucchine e peperoni grigliati con erbe aromatiche',
+    id: '94',
+    name: 'Melanzane e zucchine grigliate',
+    description: 'Verdure grigliate miste',
     price: 6.00,
-    category: 'contorni',
+    category: 'Contorni',
     available: true
   },
 
   // ANTIPASTI FREDDI - PESCE
   {
-    id: '19',
-    name: 'Insalata di Mare',
-    description: 'Insalata mista con polpo, gamberi, calamari e sedano',
+    id: '95',
+    name: 'Insalata di mare',
+    description: 'Insalata mista di mare',
     price: 12.00,
-    category: 'antipasti-pesce-freddi',
+    category: 'Antipasti Freddi - Pesce',
     available: true,
-    allergens: ['pesce', 'crostacei', 'molluschi']
+    allergens: ['Crostacei', 'Pesce', 'Molluschi']
   },
   {
-    id: '20',
-    name: 'Alici Marinate',
-    description: 'Alici fresche dell\'Adriatico marinate con cipolla rossa e olio piccante',
+    id: '96',
+    name: 'Alici marinate con cipolla rossa e olio piccante',
+    description: 'Alici fresche marinate',
     price: 10.00,
-    category: 'antipasti-pesce-freddi',
+    category: 'Antipasti Freddi - Pesce',
     available: true,
-    allergens: ['pesce']
+    allergens: ['Pesce']
   },
   {
-    id: '21',
-    name: 'Sgombro Marinato',
-    description: 'Sgombro marinato servito con rucola e aceto balsamico',
+    id: '97',
+    name: 'Sgombro marinato con rucola e aceto balsamico',
+    description: 'Sgombro marinato',
     price: 10.00,
-    category: 'antipasti-pesce-freddi',
+    category: 'Antipasti Freddi - Pesce',
     available: true,
-    allergens: ['pesce']
+    allergens: ['Pesce']
   },
   {
-    id: '22',
-    name: 'Alici Salate e Burrata',
-    description: 'Alici salate di Cetara con burrata pugliese fresca',
+    id: '98',
+    name: 'Alici salate e burrata',
+    description: 'Alici salate con burrata fresca',
     price: 10.00,
-    category: 'antipasti-pesce-freddi',
+    category: 'Antipasti Freddi - Pesce',
     available: true,
-    allergens: ['pesce', 'latte']
+    allergens: ['Pesce', 'Latte']
   },
   {
-    id: '23',
-    name: 'Salmone Affumicato',
-    description: 'Salmone affumicato norvegese con capperi e limone',
+    id: '99',
+    name: 'Salmone affumicato',
+    description: 'Salmone affumicato norvegese',
     price: 13.00,
-    category: 'antipasti-pesce-freddi',
+    category: 'Antipasti Freddi - Pesce',
     available: true,
-    allergens: ['pesce']
+    allergens: ['Pesce']
   },
   {
-    id: '24',
-    name: 'Scampi alla Catalana',
-    description: 'Scampi freschi dell\'Adriatico con verdure alla catalana',
+    id: '100',
+    name: 'Scampi alla catalana',
+    description: 'Scampi freschi alla catalana',
     price: 16.00,
-    category: 'antipasti-pesce-freddi',
+    category: 'Antipasti Freddi - Pesce',
     available: true,
-    allergens: ['crostacei']
+    allergens: ['Crostacei']
   },
 
   // ANTIPASTI CALDI - PESCE
   {
-    id: '25',
-    name: 'Pepata di Cozze',
-    description: 'Cozze fresche saltate con aglio, prezzemolo e pepe nero',
+    id: '101',
+    name: 'Pepata di cozze',
+    description: 'Cozze fresche pepate',
     price: 11.00,
-    category: 'antipasti-pesce-caldi',
+    category: 'Antipasti Caldi - Pesce',
     available: true,
-    allergens: ['molluschi']
+    allergens: ['Molluschi']
   },
   {
-    id: '26',
-    name: 'Soutè di Vongole',
-    description: 'Vongole veraci saltate con aglio, olio e prezzemolo',
+    id: '102',
+    name: 'Soutè di vongole',
+    description: 'Vongole veraci saltate',
     price: 13.00,
-    category: 'antipasti-pesce-caldi',
+    category: 'Antipasti Caldi - Pesce',
     available: true,
-    allergens: ['molluschi']
+    allergens: ['Molluschi']
   },
   {
-    id: '27',
-    name: 'Rospetto con Pomodorini',
-    description: 'Rospetto fresco con pomodorini ciliegino e olive taggiasche',
+    id: '103',
+    name: 'Rospetto con pomodorini e olive taggiasche',
+    description: 'Rospetto con pomodorini',
     price: 16.00,
-    category: 'antipasti-pesce-caldi',
+    category: 'Antipasti Caldi - Pesce',
     available: true,
-    allergens: ['pesce']
+    allergens: ['Pesce']
   },
   {
-    id: '28',
-    name: 'Scampi al Vino Bianco',
-    description: 'Scampi freschi saltati al vino bianco con rosmarino',
+    id: '104',
+    name: 'Scampi al vino bianco e rosmarino',
+    description: 'Scampi al vino bianco',
     price: 18.00,
-    category: 'antipasti-pesce-caldi',
+    category: 'Antipasti Caldi - Pesce',
     available: true,
-    allergens: ['crostacei']
+    allergens: ['Crostacei']
+  },
+  {
+    id: '105',
+    name: 'Tagliata di totano',
+    description: 'Totano fresco tagliato',
+    price: 17.00,
+    category: 'Antipasti Caldi - Pesce',
+    available: true,
+    allergens: ['Molluschi']
+  },
+  {
+    id: '106',
+    name: 'Trippa di rospo',
+    description: 'Trippa di rospo fresca',
+    price: 15.00,
+    category: 'Antipasti Caldi - Pesce',
+    available: true,
+    allergens: ['Pesce']
   },
 
   // PRIMI - PESCE
   {
-    id: '29',
-    name: 'Chitarrina allo Scoglio',
-    description: 'Pasta fresca abruzzese con frutti di mare misti e pomodorini',
+    id: '107',
+    name: 'Gnocchi/chitarrina allo scoglio bianco/rosè',
+    description: 'Pasta fresca allo scoglio',
     price: 14.00,
-    category: 'primi-pesce',
+    category: 'Primi - Pesce',
     available: true,
-    allergens: ['glutine', 'pesce', 'crostacei', 'molluschi'],
+    allergens: ['Glutine', 'Crostacei', 'Pesce', 'Molluschi'],
     specialPreparation: true
   },
   {
-    id: '30',
-    name: 'Gnocchi al Pesto di Alici',
-    description: 'Gnocchi freschi con pesto di alici e pinoli',
+    id: '108',
+    name: 'Gnocchi/chitarrina al pesto di alici',
+    description: 'Pasta con pesto di alici',
     price: 13.00,
-    category: 'primi-pesce',
+    category: 'Primi - Pesce',
     available: true,
-    allergens: ['glutine', 'pesce'],
+    allergens: ['Glutine', 'Pesce'],
     specialPreparation: true
   },
   {
-    id: '31',
-    name: 'Chitarrina alle Vongole',
-    description: 'Pasta fresca con vongole veraci, aglio e prezzemolo',
+    id: '109',
+    name: 'Gnocchi/chitarrina ai scampetti e pomodorini freschi',
+    description: 'Pasta con scampetti',
+    price: 15.00,
+    category: 'Primi - Pesce',
+    available: true,
+    allergens: ['Glutine', 'Crostacei'],
+    specialPreparation: true
+  },
+  {
+    id: '110',
+    name: 'Gnocchi/chitarrina alle vongole',
+    description: 'Pasta con vongole veraci',
     price: 13.00,
-    category: 'primi-pesce',
+    category: 'Primi - Pesce',
     available: true,
-    allergens: ['glutine', 'molluschi'],
+    allergens: ['Glutine', 'Molluschi'],
     specialPreparation: true
   },
   {
-    id: '32',
-    name: 'Spaghetti alle Vongole',
-    description: 'Spaghetti tradizionali con vongole veraci e vino bianco',
+    id: '111',
+    name: 'Gnocchi/chitarrina alle pannocchie',
+    description: 'Pasta con pannocchie',
+    price: 15.00,
+    category: 'Primi - Pesce',
+    available: true,
+    allergens: ['Glutine', 'Crostacei'],
+    specialPreparation: true
+  },
+  {
+    id: '112',
+    name: 'Gnocchi/chitarrina ai calamari rossi',
+    description: 'Pasta con calamari rossi',
+    price: 13.00,
+    category: 'Primi - Pesce',
+    available: true,
+    allergens: ['Glutine', 'Molluschi'],
+    specialPreparation: true
+  },
+  {
+    id: '113',
+    name: 'Gnocchi/chitarrina con coda di rospo e scampetti',
+    description: 'Pasta con coda di rospo',
+    price: 16.00,
+    category: 'Primi - Pesce',
+    available: true,
+    allergens: ['Glutine', 'Crostacei', 'Pesce'],
+    specialPreparation: true
+  },
+  {
+    id: '114',
+    name: 'Gnocchi/chitarrina con mazzancolle e vongole',
+    description: 'Pasta con mazzancolle',
+    price: 14.00,
+    category: 'Primi - Pesce',
+    available: true,
+    allergens: ['Glutine', 'Crostacei', 'Molluschi'],
+    specialPreparation: true
+  },
+  {
+    id: '115',
+    name: 'Spaghetto alle vongole',
+    description: 'Spaghetti alle vongole veraci',
     price: 12.00,
-    category: 'primi-pesce',
+    category: 'Primi - Pesce',
     available: true,
-    allergens: ['glutine', 'molluschi']
+    allergens: ['Glutine', 'Molluschi'],
+    specialPreparation: false
+  },
+  {
+    id: '116',
+    name: 'Mezzo rigatone allo scoglio bianco/rosè',
+    description: 'Rigatoni allo scoglio',
+    price: 13.00,
+    category: 'Primi - Pesce',
+    available: true,
+    allergens: ['Glutine', 'Crostacei', 'Pesce', 'Molluschi'],
+    specialPreparation: false
   },
 
   // SECONDI - PESCE
   {
-    id: '33',
-    name: 'Frittura di Calamari',
-    description: 'Calamari freschi infarinati e fritti, serviti croccanti',
+    id: '117',
+    name: 'Frittura di calamari',
+    description: 'Calamari fritti freschi',
     price: 14.00,
-    category: 'secondi-pesce',
+    category: 'Secondi - Pesce',
     available: true,
-    allergens: ['glutine', 'molluschi']
+    allergens: ['Glutine', 'Molluschi']
   },
   {
-    id: '34',
-    name: 'Frittura di Alici Panate',
-    description: 'Alici fresche panate e fritte secondo tradizione adriatica',
+    id: '118',
+    name: 'Frittura di alici panate',
+    description: 'Alici panate e fritte',
     price: 14.00,
-    category: 'secondi-pesce',
+    category: 'Secondi - Pesce',
     available: true,
-    allergens: ['glutine', 'pesce']
+    allergens: ['Glutine', 'Pesce']
   },
   {
-    id: '35',
-    name: 'Guazzetto di Pesce',
-    description: 'Zuppa di pesce misto dell\'Adriatico (su prenotazione)',
+    id: '119',
+    name: 'Frittura di alici infarinate',
+    description: 'Alici infarinate e fritte',
+    price: 13.00,
+    category: 'Secondi - Pesce',
+    available: true,
+    allergens: ['Glutine', 'Pesce']
+  },
+  {
+    id: '120',
+    name: 'Guazzetto (su prenotazione)',
+    description: 'Guazzetto di pesce misto',
     price: 28.00,
-    category: 'secondi-pesce',
+    category: 'Secondi - Pesce',
     available: true,
-    allergens: ['pesce', 'crostacei', 'molluschi']
+    allergens: ['Crostacei', 'Pesce', 'Molluschi']
   },
 
   // PIZZERIA
   {
-    id: '36',
-    name: 'Focaccia Semplice',
-    description: 'Focaccia alta cotta nel forno a legna con rosmarino',
+    id: '121',
+    name: 'Focaccia',
+    description: 'Focaccia semplice',
     price: 4.50,
-    category: 'pizzeria',
+    category: 'Pizzeria',
     available: true,
-    allergens: ['glutine']
+    allergens: ['Glutine']
   },
   {
-    id: '37',
-    name: 'Pizza Margherita',
-    description: 'Pomodoro San Marzano, mozzarella fior di latte e basilico fresco',
+    id: '122',
+    name: 'Marinara',
+    description: 'Pomodoro, aglio, origano',
+    price: 5.50,
+    category: 'Pizzeria',
+    available: true,
+    allergens: ['Glutine']
+  },
+  {
+    id: '123',
+    name: 'Margherita',
+    description: 'Pomodoro, mozzarella, basilico',
     price: 6.50,
-    category: 'pizzeria',
+    category: 'Pizzeria',
     available: true,
-    allergens: ['glutine', 'latte']
+    allergens: ['Glutine', 'Latte']
   },
   {
-    id: '38',
-    name: 'Pizza Prosciutto Cotto',
-    description: 'Pomodoro, mozzarella e prosciutto cotto di alta qualità',
+    id: '124',
+    name: 'Prosciutto cotto',
+    description: 'Pomodoro, mozzarella, prosciutto cotto',
     price: 7.50,
-    category: 'pizzeria',
+    category: 'Pizzeria',
     available: true,
-    allergens: ['glutine', 'latte']
+    allergens: ['Glutine', 'Latte']
   },
   {
-    id: '39',
-    name: 'Pizza 4 Stagioni',
-    description: 'Pomodoro, mozzarella, prosciutto, funghi, carciofi e olive',
+    id: '125',
+    name: 'Salame piccante',
+    description: 'Pomodoro, mozzarella, salame piccante',
+    price: 7.50,
+    category: 'Pizzeria',
+    available: true,
+    allergens: ['Glutine', 'Latte']
+  },
+  {
+    id: '126',
+    name: 'Wrustel',
+    description: 'Pomodoro, mozzarella, wurstel',
+    price: 7.50,
+    category: 'Pizzeria',
+    available: true,
+    allergens: ['Glutine', 'Latte']
+  },
+  {
+    id: '127',
+    name: 'Salsiccia',
+    description: 'Pomodoro, mozzarella, salsiccia',
+    price: 7.50,
+    category: 'Pizzeria',
+    available: true,
+    allergens: ['Glutine', 'Latte']
+  },
+  {
+    id: '128',
+    name: 'Mais',
+    description: 'Pomodoro, mozzarella, mais',
+    price: 7.50,
+    category: 'Pizzeria',
+    available: true,
+    allergens: ['Glutine', 'Latte']
+  },
+  {
+    id: '129',
+    name: 'Zucchine',
+    description: 'Pomodoro, mozzarella, zucchine',
+    price: 7.50,
+    category: 'Pizzeria',
+    available: true,
+    allergens: ['Glutine', 'Latte']
+  },
+  {
+    id: '130',
+    name: 'Melanzane',
+    description: 'Pomodoro, mozzarella, melanzane',
+    price: 7.50,
+    category: 'Pizzeria',
+    available: true,
+    allergens: ['Glutine', 'Latte']
+  },
+  {
+    id: '131',
+    name: 'Cipolla',
+    description: 'Pomodoro, mozzarella, cipolla',
+    price: 7.50,
+    category: 'Pizzeria',
+    available: true,
+    allergens: ['Glutine', 'Latte']
+  },
+  {
+    id: '132',
+    name: 'Carciofi',
+    description: 'Pomodoro, mozzarella, carciofi',
+    price: 7.50,
+    category: 'Pizzeria',
+    available: true,
+    allergens: ['Glutine', 'Latte']
+  },
+  {
+    id: '133',
+    name: 'Funghi',
+    description: 'Pomodoro, mozzarella, funghi',
+    price: 7.50,
+    category: 'Pizzeria',
+    available: true,
+    allergens: ['Glutine', 'Latte']
+  },
+  {
+    id: '134',
+    name: '4 stagioni',
+    description: 'Pomodoro, mozzarella, prosciutto, funghi, carciofi, olive',
     price: 8.50,
-    category: 'pizzeria',
+    category: 'Pizzeria',
     available: true,
-    allergens: ['glutine', 'latte']
+    allergens: ['Glutine', 'Latte']
   },
   {
-    id: '40',
-    name: 'Pizza Prosciutto Crudo',
-    description: 'Pomodoro, mozzarella e prosciutto crudo di Parma',
+    id: '135',
+    name: 'Boscaiola',
+    description: 'Pomodoro, mozzarella, salsiccia, funghi',
+    price: 8.50,
+    category: 'Pizzeria',
+    available: true,
+    allergens: ['Glutine', 'Latte']
+  },
+  {
+    id: '136',
+    name: 'Capricciosa',
+    description: 'Pomodoro, mozzarella, prosciutto, funghi, carciofi',
+    price: 8.50,
+    category: 'Pizzeria',
+    available: true,
+    allergens: ['Glutine', 'Latte']
+  },
+  {
+    id: '137',
+    name: '4 formaggi',
+    description: 'Quattro formaggi misti',
+    price: 8.50,
+    category: 'Pizzeria',
+    available: true,
+    allergens: ['Glutine', 'Latte']
+  },
+  {
+    id: '138',
+    name: 'Prosciutto crudo',
+    description: 'Pomodoro, mozzarella, prosciutto crudo',
     price: 9.50,
-    category: 'pizzeria',
+    category: 'Pizzeria',
     available: true,
-    allergens: ['glutine', 'latte']
+    allergens: ['Glutine', 'Latte']
   },
   {
-    id: '41',
-    name: 'Pizza Burrata e Alici',
-    description: 'Pomodoro, burrata pugliese e alici del Mar Cantabrico',
-    price: 10.00,
-    category: 'pizzeria',
+    id: '139',
+    name: 'Rucola e parmigiano',
+    description: 'Pomodoro, mozzarella, rucola, parmigiano',
+    price: 9.50,
+    category: 'Pizzeria',
     available: true,
-    allergens: ['glutine', 'latte', 'pesce']
+    allergens: ['Glutine', 'Latte']
+  },
+  {
+    id: '140',
+    name: 'Tonno',
+    description: 'Pomodoro, mozzarella, tonno',
+    price: 9.50,
+    category: 'Pizzeria',
+    available: true,
+    allergens: ['Glutine', 'Pesce', 'Latte']
+  },
+  {
+    id: '141',
+    name: 'Alici',
+    description: 'Pomodoro, mozzarella, alici',
+    price: 9.50,
+    category: 'Pizzeria',
+    available: true,
+    allergens: ['Glutine', 'Pesce', 'Latte']
+  },
+  {
+    id: '142',
+    name: 'Tartufo',
+    description: 'Pomodoro, mozzarella, tartufo',
+    price: 9.50,
+    category: 'Pizzeria',
+    available: true,
+    allergens: ['Glutine', 'Latte']
+  },
+  {
+    id: '143',
+    name: 'Bufala',
+    description: 'Pomodoro, mozzarella di bufala',
+    price: 9.50,
+    category: 'Pizzeria',
+    available: true,
+    allergens: ['Glutine', 'Latte']
+  },
+  {
+    id: '144',
+    name: 'Burrata e alici',
+    description: 'Pomodoro, burrata, alici',
+    price: 10.00,
+    category: 'Pizzeria',
+    available: true,
+    allergens: ['Glutine', 'Pesce', 'Latte']
   }
 ];
 
 const categoryInfo = {
-  'antipasti-carne': {
-    name: 'Antipasti Terra',
-    icon: ChefHat,
-    gradient: 'from-sand-400 to-sand-600',
-    color: 'text-sand-700',
-    hoverGradient: 'from-sand-500 to-sand-700'
+  'Pizzeria': {
+    name: 'Pizzeria',
+    icon: Pizza, // Assuming Pizza icon
+    gradient: 'from-sand-500 to-coral-500',
+    color: 'text-sand-800',
+    hoverGradient: 'from-sand-600 to-coral-600'
   },
-  'primi-carne': {
-    name: 'Primi Terra',
-    icon: Soup,
-    gradient: 'from-coral-400 to-coral-600',
-    color: 'text-coral-700',
-    hoverGradient: 'from-coral-500 to-coral-700'
-  },
-  'secondi-carne': {
-    name: 'Secondi Terra',
-    icon: Sandwich,
-    gradient: 'from-coral-500 to-coral-700',
-    color: 'text-coral-800',
-    hoverGradient: 'from-coral-600 to-coral-800'
-  },
-  'contorni': {
-    name: 'Contorni',
-    icon: Salad,
-    gradient: 'from-emerald-400 to-emerald-600',
-    color: 'text-emerald-700',
-    hoverGradient: 'from-emerald-500 to-emerald-700'
-  },
-  'antipasti-pesce-freddi': {
-    name: 'Crudi Mare',
-    icon: Fish,
-    gradient: 'from-ocean-400 to-ocean-600',
-    color: 'text-ocean-700',
-    hoverGradient: 'from-ocean-500 to-ocean-700'
-  },
-  'antipasti-pesce-caldi': {
-    name: 'Antipasti Mare',
-    icon: Flame,
-    gradient: 'from-ocean-500 to-ocean-700',
-    color: 'text-ocean-800',
-    hoverGradient: 'from-ocean-600 to-ocean-800'
-  },
-  'primi-pesce': {
-    name: 'Primi Mare',
-    icon: Waves,
-    gradient: 'from-ocean-600 to-teal-600',
-    color: 'text-ocean-800',
-    hoverGradient: 'from-ocean-700 to-teal-700'
-  },
-  'secondi-pesce': {
+  'Secondi - Pesce': {
     name: 'Secondi Mare',
-    icon: Anchor,
+    icon: Anchor, // Assuming Anchor icon
     gradient: 'from-teal-500 to-teal-700',
     color: 'text-teal-800',
     hoverGradient: 'from-teal-600 to-teal-800'
   },
-  'pizzeria': {
-    name: 'Pizzeria',
-    icon: Pizza,
-    gradient: 'from-sand-500 to-coral-500',
-    color: 'text-sand-800',
-    hoverGradient: 'from-sand-600 to-coral-600'
+  'Primi - Pesce': {
+    name: 'Primi Mare',
+    icon: Waves, // Assuming Waves icon
+    gradient: 'from-ocean-600 to-teal-600',
+    color: 'text-ocean-800',
+    hoverGradient: 'from-ocean-700 to-teal-700'
+  },
+  'Antipasti Caldi - Pesce': {
+    name: 'Antipasti Mare',
+    icon: Shrimp, // Assuming Flame icon
+    gradient: 'from-ocean-500 to-ocean-700',
+    color: 'text-ocean-800',
+    hoverGradient: 'from-ocean-600 to-ocean-800'
+  },
+  'Antipasti Freddi - Pesce': {
+    name: 'Crudi Mare',
+    icon: Fish, // Assuming Fish icon
+    gradient: 'from-ocean-400 to-ocean-600',
+    color: 'text-ocean-700',
+    hoverGradient: 'from-ocean-500 to-ocean-700'
+  },
+  'Contorni': { // Updated name to reflect new category naming from SQL
+    name: 'Contorni',
+    icon: Salad, // Assuming Salad icon
+    gradient: 'from-emerald-400 to-emerald-600',
+    color: 'text-emerald-700',
+    hoverGradient: 'from-emerald-500 to-emerald-700'
+  },
+  'Secondi - Carne': {
+    name: 'Secondi Terra',
+    icon: Sandwich, // Assuming Sandwich icon
+    gradient: 'from-coral-500 to-coral-700',
+    color: 'text-coral-800',
+    hoverGradient: 'from-coral-600 to-coral-800'
+  },
+  'Primi - Carne': {
+    name: 'Primi Terra',
+    icon: Soup, // Assuming Soup icon
+    gradient: 'from-coral-400 to-coral-600',
+    color: 'text-coral-700',
+    hoverGradient: 'from-coral-500 to-coral-700'
+  },
+  'Antipasti e Stuzzicheria - Carne': {
+    name: 'Antipasti Terra',
+    icon: ChefHat, // Assuming ChefHat icon
+    gradient: 'from-sand-400 to-sand-600',
+    color: 'text-sand-700',
+    hoverGradient: 'from-sand-500 to-sand-700'
+  },
+  'Dessert': {
+    name: 'Dessert',
+    icon: Cake, // Assuming a suitable icon
+    gradient: 'from-rose-400 to-rose-600',
+    color: 'text-rose-700',
+    hoverGradient: 'from-rose-500 to-rose-700'
+  },
+  'Aperitivo': {
+    name: 'Aperitivo',
+    icon: Martini, // Assuming a suitable icon
+    gradient: 'from-orange-400 to-orange-600',
+    color: 'text-orange-700',
+    hoverGradient: 'from-orange-500 to-orange-700'
+  },
+  'Caffetteria': {
+    name: 'Caffetteria',
+    icon: Coffee, // Assuming a suitable icon
+    gradient: 'from-amber-700 to-amber-900',
+    color: 'text-amber-900',
+    hoverGradient: 'from-amber-800 to-amber-950'
+  },
+  'Calici': {
+    name: 'Calici',
+    icon: Wine, // Assuming a suitable icon
+    gradient: 'from-gray-400 to-gray-600',
+    color: 'text-gray-700',
+    hoverGradient: 'from-gray-500 to-gray-700'
+  },
+  'Vini Rossi': {
+    name: 'Vini Rossi',
+    icon: Wine, // Assuming a suitable icon
+    gradient: 'from-red-600 to-red-800',
+    color: 'text-red-900',
+    hoverGradient: 'from-red-700 to-red-900'
+  },
+  'Vini Rosati': {
+    name: 'Vini Rosati',
+    icon: Wine, // Assuming a suitable icon
+    gradient: 'from-pink-400 to-pink-600',
+    color: 'text-pink-700',
+    hoverGradient: 'from-pink-500 to-pink-700'
+  },
+  'Vini Bianchi': {
+    name: 'Vini Bianchi',
+    icon: Wine, // Assuming a suitable icon
+    gradient: 'from-yellow-200 to-yellow-400',
+    color: 'text-yellow-600',
+    hoverGradient: 'from-yellow-300 to-yellow-500'
+  },
+  'Spumanti e Champagne': {
+    name: 'Spumanti e Champagne',
+    icon: BottleWine, // Assuming a suitable icon
+    gradient: 'from-purple-400 to-purple-600',
+    color: 'text-purple-700',
+    hoverGradient: 'from-purple-500 to-purple-700'
+  },
+  'Birre': {
+    name: 'Birre',
+    icon: Beer, // Assuming a suitable icon like a beer mug
+    gradient: 'from-yellow-600 to-yellow-800',
+    color: 'text-yellow-900',
+    hoverGradient: 'from-yellow-700 to-yellow-900'
+  },
+  'Bevande': {
+    name: 'Bevande',
+    icon: Coffee, // Assuming a suitable icon like a drink icon
+    gradient: 'from-blue-400 to-blue-600',
+    color: 'text-blue-700',
+    hoverGradient: 'from-blue-500 to-blue-700'
   }
 };
 
 const allergenSymbols = {
-  'glutine': '🌾',
-  'crostacei': '🦐',
-  'uova': '🥚',
-  'pesce': '🐟',
-  'latte': '🥛',
-  'molluschi': '🐚'
+  'Glutine': '🌾',
+  'Crostacei': '🦐',
+  'Uova': '🥚',
+  'Pesce': '🐟',
+  'Arachidi': '🥜',
+  'Soia': '🫘',
+  'Latte': '🥛',
+  'Frutta a guscio': '🌰',
+  'Sedano': '🥬',
+  'Senape': '🌶️',
+  'Semi di sesamo': '🫧',
+  'Anidride solforosa': '⚠️',
+  'Lupini': '🫛',
+  'Molluschi': '🐚'
 };
 
 function Test() {
-
-  const [selectedCategory, setSelectedCategory] = useState('primi-carne');
+  const [selectedCategory, setSelectedCategory] = useState('Bevande');
   const [isLoaded, setIsLoaded] = useState(false);
 
   const categories = [
-    'antipasti-carne',
-    'primi-carne',
-    'secondi-carne',
-    'contorni',
-    'antipasti-pesce-freddi',
-    'antipasti-pesce-caldi',
-    'primi-pesce',
-    'secondi-pesce',
-    'pizzeria'
+    'Antipasti Caldi - Pesce',
+    'Antipasti Freddi - Pesce',
+    'Antipasti e Stuzzicheria - Carne',
+    'Primi - Pesce',
+    'Primi - Carne',
+    'Secondi - Carne',
+    'Secondi - Pesce',
+    'Pizzeria',
+    'Contorni',
+    'Dessert',
+    'Aperitivo',
+    'Caffetteria',
+    'Calici',
+    'Vini Rossi',
+    'Vini Rosati',
+    'Vini Bianchi',
+    'Spumanti e Champagne',
+    'Birre',
+    'Bevande'
   ];
 
   const getMenuByCategory = (category: string) => {
@@ -889,15 +1854,15 @@ function Test() {
               <div className="space-y-4 lg:space-y-6 text-slate-300">
                 <div className="flex items-center justify-center lg:justify-start gap-3 lg:gap-4">
                   <MapPin className="w-4 h-4 lg:w-5 lg:h-5 text-ocean-400 flex-shrink-0" />
-                  <span className="text-sm lg:text-base">Via del Mare, 1 - Martinsicuro (TE)</span>
+                  <span className="text-sm lg:text-base">Lungomare Europa - Martinsicuro (TE)</span>
                 </div>
                 <div className="flex items-center justify-center lg:justify-start gap-3 lg:gap-4">
                   <Phone className="w-4 h-4 lg:w-5 lg:h-5 text-ocean-400 flex-shrink-0" />
-                  <span className="text-sm lg:text-base">+39 0861 123456</span>
+                  <span className="text-sm lg:text-base">+39 329 328 3319</span>
                 </div>
                 <div className="flex items-center justify-center lg:justify-start gap-3 lg:gap-4">
                   <Clock className="w-4 h-4 lg:w-5 lg:h-5 text-ocean-400 flex-shrink-0" />
-                  <span className="text-sm lg:text-base">12:00-15:00 • 19:00-24:00</span>
+                  <span className="text-sm lg:text-base">08:00-00:00</span>
                 </div>
               </div>
             </div>
