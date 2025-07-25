@@ -1,0 +1,742 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size: 14px;
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  
+  /* Deliveroo-Inspired Ocean Theme Colors */
+  --background: #fafbff;
+  --foreground: #1a1d29;
+  --card: #ffffff;
+  --card-foreground: #1a1d29;
+  --popover: #ffffff;
+  --popover-foreground: #1a1d29;
+  --primary: #00c7be;
+  --primary-foreground: #ffffff;
+  --secondary: #f1f8ff;
+  --secondary-foreground: #0f4c75;
+  --muted: #f8fafc;
+  --muted-foreground: #64748b;
+  --accent: #e0f7fa;
+  --accent-foreground: #006064;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: rgba(0, 199, 190, 0.15);
+  --input: transparent;
+  --input-background: #f8fafc;
+  --switch-background: #cbd5e1;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --ring: #00c7be;
+  --radius: 1.2rem;
+
+  /* Marine Theme Colors */
+  --ocean-50: #e0f7fa;
+  --ocean-100: #b2ebf2;
+  --ocean-200: #80deea;
+  --ocean-300: #4dd0e1;
+  --ocean-400: #26c6da;
+  --ocean-500: #00bcd4;
+  --ocean-600: #00acc1;
+  --ocean-700: #0097a7;
+  --ocean-800: #00838f;
+  --ocean-900: #006064;
+
+  --coral-50: #fce4ec;
+  --coral-100: #f8bbd9;
+  --coral-200: #f48fb1;
+  --coral-300: #f06292;
+  --coral-400: #ec407a;
+  --coral-500: #e91e63;
+  --coral-600: #d81b60;
+  --coral-700: #c2185b;
+  --coral-800: #ad1457;
+  --coral-900: #880e4f;
+
+  --sand-50: #fff8e1;
+  --sand-100: #ffecb3;
+  --sand-200: #ffe082;
+  --sand-300: #ffd54f;
+  --sand-400: #ffca28;
+  --sand-500: #ffc107;
+  --sand-600: #ffb300;
+  --sand-700: #ffa000;
+  --sand-800: #ff8f00;
+  --sand-900: #ff6f00;
+
+  --emerald-50: #e8f5e8;
+  --emerald-100: #c8e6c9;
+  --emerald-200: #a5d6a7;
+  --emerald-300: #81c784;
+  --emerald-400: #66bb6a;
+  --emerald-500: #4caf50;
+  --emerald-600: #43a047;
+  --emerald-700: #388e3c;
+  --emerald-800: #2e7d32;
+  --emerald-900: #1b5e20;
+
+  --teal-50: #e0f2f1;
+  --teal-100: #b2dfdb;
+  --teal-200: #80cbc4;
+  --teal-300: #4db6ac;
+  --teal-400: #26a69a;
+  --teal-500: #009688;
+  --teal-600: #00897b;
+  --teal-700: #00796b;
+  --teal-800: #00695c;
+  --teal-900: #004d40;
+}
+
+.dark {
+  --background: #0f172a;
+  --foreground: #f8fafc;
+  --card: #1e293b;
+  --card-foreground: #f8fafc;
+  --popover: #1e293b;
+  --popover-foreground: #f8fafc;
+  --primary: #26c6da;
+  --primary-foreground: #004d40;
+  --secondary: #334155;
+  --secondary-foreground: #f8fafc;
+  --muted: #334155;
+  --muted-foreground: #94a3b8;
+  --accent: #334155;
+  --accent-foreground: #f8fafc;
+  --destructive: #f87171;
+  --destructive-foreground: #7f1d1d;
+  --border: rgba(38, 198, 218, 0.2);
+  --input: #334155;
+  --ring: #26c6da;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* Marine colors */
+  --color-ocean-50: var(--ocean-50);
+  --color-ocean-100: var(--ocean-100);
+  --color-ocean-200: var(--ocean-200);
+  --color-ocean-300: var(--ocean-300);
+  --color-ocean-400: var(--ocean-400);
+  --color-ocean-500: var(--ocean-500);
+  --color-ocean-600: var(--ocean-600);
+  --color-ocean-700: var(--ocean-700);
+  --color-ocean-800: var(--ocean-800);
+  --color-ocean-900: var(--ocean-900);
+
+  --color-coral-50: var(--coral-50);
+  --color-coral-100: var(--coral-100);
+  --color-coral-200: var(--coral-200);
+  --color-coral-300: var(--coral-300);
+  --color-coral-400: var(--coral-400);
+  --color-coral-500: var(--coral-500);
+  --color-coral-600: var(--coral-600);
+  --color-coral-700: var(--coral-700);
+  --color-coral-800: var(--coral-800);
+  --color-coral-900: var(--coral-900);
+
+  --color-sand-50: var(--sand-50);
+  --color-sand-100: var(--sand-100);
+  --color-sand-200: var(--sand-200);
+  --color-sand-300: var(--sand-300);
+  --color-sand-400: var(--sand-400);
+  --color-sand-500: var(--sand-500);
+  --color-sand-600: var(--sand-600);
+  --color-sand-700: var(--sand-700);
+  --color-sand-800: var(--sand-800);
+  --color-sand-900: var(--sand-900);
+
+  --color-emerald-50: var(--emerald-50);
+  --color-emerald-100: var(--emerald-100);
+  --color-emerald-200: var(--emerald-200);
+  --color-emerald-300: var(--emerald-300);
+  --color-emerald-400: var(--emerald-400);
+  --color-emerald-500: var(--emerald-500);
+  --color-emerald-600: var(--emerald-600);
+  --color-emerald-700: var(--emerald-700);
+  --color-emerald-800: var(--emerald-800);
+  --color-emerald-900: var(--emerald-900);
+
+  --color-teal-50: var(--teal-50);
+  --color-teal-100: var(--teal-100);
+  --color-teal-200: var(--teal-200);
+  --color-teal-300: var(--teal-300);
+  --color-teal-400: var(--teal-400);
+  --color-teal-500: var(--teal-500);
+  --color-teal-600: var(--teal-600);
+  --color-teal-700: var(--teal-700);
+  --color-teal-800: var(--teal-800);
+  --color-teal-900: var(--teal-900);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    overflow-x: hidden;
+  }
+}
+
+/**
+ * Marine-optimized typography
+ */
+@layer base {
+  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) {
+    h1 {
+      font-family: var(--font-heading);
+      font-size: var(--text-2xl);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+    }
+
+    h2 {
+      font-family: var(--font-heading);
+      font-size: var(--text-xl);
+      font-weight: 600;
+      line-height: 1.25;
+      letter-spacing: -0.025em;
+    }
+
+    h3 {
+      font-family: var(--font-heading);
+      font-size: var(--text-lg);
+      font-weight: 600;
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+    }
+
+    h4 {
+      font-family: var(--font-heading);
+      font-size: var(--text-base);
+      font-weight: 600;
+      line-height: 1.4;
+      letter-spacing: -0.015em;
+    }
+
+    p {
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.6;
+      letter-spacing: 0.005em;
+    }
+
+    label {
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    button {
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    input {
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+  }
+}
+
+html {
+  font-size: var(--font-size);
+  scroll-behavior: smooth;
+}
+
+/* Deliveroo-inspired Ocean Background */
+.modern-ocean-bg {
+  background: 
+    radial-gradient(circle at 15% 25%, rgba(0, 199, 190, 0.08) 0%, transparent 25%),
+    radial-gradient(circle at 85% 75%, rgba(38, 198, 218, 0.06) 0%, transparent 25%),
+    radial-gradient(circle at 50% 50%, rgba(0, 150, 136, 0.04) 0%, transparent 30%),
+    linear-gradient(135deg, #fafbff 0%, #e0f7fa 25%, #b2ebf2 50%, #e0f7fa 75%, #fafbff 100%);
+}
+
+/* Enhanced Glassmorphism */
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(0, 199, 190, 0.15);
+  box-shadow: 
+    0 8px 32px rgba(0, 199, 190, 0.12),
+    0 4px 16px rgba(38, 198, 218, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+/* Beach Header Background with Palm Trees */
+.beach-header-bg {
+  background: 
+    /* Palmette stilizzate */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'%3E%3Cg opacity='0.06'%3E%3Cpath d='M20 85 Q18 80 20 75 Q22 80 20 85 M20 85 L20 95' stroke='%23B7935F' stroke-width='1.5' fill='none'/%3E%3Cpath d='M20 75 Q10 70 5 65 Q8 68 15 72 Q18 74 20 75' fill='%2365A765' opacity='0.7'/%3E%3Cpath d='M20 75 Q30 70 35 65 Q32 68 25 72 Q22 74 20 75' fill='%2365A765' opacity='0.8'/%3E%3Cpath d='M20 75 Q15 60 10 50 Q13 55 18 65 Q19 70 20 75' fill='%2365A765' opacity='0.6'/%3E%3Cpath d='M20 75 Q25 60 30 50 Q27 55 22 65 Q21 70 20 75' fill='%2365A765' opacity='0.7'/%3E%3C/g%3E%3Cg opacity='0.04' transform='translate(150 5)'%3E%3Cpath d='M15 80 Q13 75 15 70 Q17 75 15 80 M15 80 L15 90' stroke='%23B7935F' stroke-width='1' fill='none'/%3E%3Cpath d='M15 70 Q8 66 4 62 Q6 64 12 68 Q14 69 15 70' fill='%2365A765' opacity='0.6'/%3E%3Cpath d='M15 70 Q22 66 26 62 Q24 64 18 68 Q16 69 15 70' fill='%2365A765' opacity='0.7'/%3E%3Cpath d='M15 70 Q11 58 7 50 Q9 53 14 62 Q14.5 66 15 70' fill='%2365A765' opacity='0.5'/%3E%3C/g%3E%3C/svg%3E") repeat-x,
+    /* Onde di sabbia */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 100'%3E%3Cpath d='M0,70 Q300,50 600,70 T1200,70 L1200,100 L0,100 Z' fill='%23FFE082' opacity='0.08'/%3E%3C/svg%3E") bottom repeat-x,
+    /* Gradiente spiaggia */
+    linear-gradient(135deg, rgba(255, 248, 225, 0.4) 0%, rgba(224, 247, 250, 0.6) 50%, rgba(178, 235, 242, 0.4) 100%);
+  background-size: 200px 100px, 1200px 100px, 100% 100%;
+  background-position: left top, left bottom, center;
+}
+
+/* Beach Menu Background - Stilizzato per la sezione menu */
+.beach-menu-bg {
+  background: 
+    /* Conchiglie stilizzate sparse */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Cg opacity='0.03'%3E%3Cpath d='M50 80 Q45 75 50 70 Q55 75 50 80 M50 80 Q48 85 50 90 Q52 85 50 80' fill='%23FF7043' transform='rotate(15 50 80)'/%3E%3Cpath d='M320 120 Q315 115 320 110 Q325 115 320 120 M320 120 Q318 125 320 130 Q322 125 320 120' fill='%23FF7043' opacity='0.6' transform='rotate(-20 320 120)'/%3E%3Cpath d='M150 200 Q145 195 150 190 Q155 195 150 200 M150 200 Q148 205 150 210 Q152 205 150 200' fill='%23FF7043' opacity='0.4' transform='rotate(45 150 200)'/%3E%3Cpath d='M280 250 Q275 245 280 240 Q285 245 280 250 M280 250 Q278 255 280 260 Q282 255 280 250' fill='%23FF7043' opacity='0.5' transform='rotate(-30 280 250)'/%3E%3C/g%3E%3C/svg%3E") repeat,
+    /* Onde di sabbia multiple */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120'%3E%3Cpath d='M0,60 Q200,40 400,60 Q600,80 800,60 Q1000,40 1200,60 L1200,120 L0,120 Z' fill='%23FFE082' opacity='0.06'/%3E%3Cpath d='M0,80 Q300,60 600,80 T1200,80 L1200,120 L0,120 Z' fill='%23FFF3E0' opacity='0.04'/%3E%3C/svg%3E") bottom repeat-x,
+    /* Onde marine superiori */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 100'%3E%3Cpath d='M0,30 Q300,10 600,30 T1200,30 L1200,0 L0,0 Z' fill='%2380DEEA' opacity='0.05'/%3E%3Cpath d='M0,50 Q400,30 800,50 T1200,50 L1200,0 L0,0 Z' fill='%2300BCD4' opacity='0.03'/%3E%3C/svg%3E") top repeat-x,
+    /* Gradiente spiaggia complesso */
+    linear-gradient(180deg, 
+      rgba(224, 247, 250, 0.3) 0%, 
+      rgba(255, 248, 225, 0.4) 25%, 
+      rgba(178, 235, 242, 0.3) 50%, 
+      rgba(255, 236, 179, 0.4) 75%, 
+      rgba(224, 247, 250, 0.3) 100%
+    );
+  background-size: 400px 300px, 1200px 120px, 1200px 100px, 100% 100%;
+  background-position: left top, left bottom, left top, center;
+  position: relative;
+}
+
+/* Decorazioni marine animate per la sezione menu */
+.beach-menu-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    /* Stelle marine stilizzate */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Cg opacity='0.02'%3E%3Cpath d='M100 100 L105 110 L115 110 L107 118 L110 128 L100 122 L90 128 L93 118 L85 110 L95 110 Z' fill='%23E91E63' transform='rotate(30 100 100)'/%3E%3Cpath d='M450 200 L455 210 L465 210 L457 218 L460 228 L450 222 L440 228 L443 218 L435 210 L445 210 Z' fill='%23E91E63' opacity='0.6' transform='rotate(-15 450 200)'/%3E%3Cpath d='M200 300 L205 310 L215 310 L207 318 L210 328 L200 322 L190 328 L193 318 L185 310 L195 310 Z' fill='%23E91E63' opacity='0.4' transform='rotate(60 200 300)'/%3E%3C/g%3E%3C/svg%3E") repeat,
+    /* Bolle marine */
+    radial-gradient(circle at 20% 30%, rgba(0, 199, 190, 0.02) 0%, transparent 10%),
+    radial-gradient(circle at 80% 70%, rgba(38, 198, 218, 0.02) 0%, transparent 8%),
+    radial-gradient(circle at 60% 20%, rgba(0, 150, 136, 0.015) 0%, transparent 12%);
+  background-size: 600px 400px, 800px 600px, 600px 400px, 400px 300px;
+  animation: gentle-wave 20s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes gentle-wave {
+  0%, 100% {
+    transform: translateX(0px) translateY(0px);
+  }
+  25% {
+    transform: translateX(10px) translateY(-5px);
+  }
+  50% {
+    transform: translateX(-5px) translateY(10px);
+  }
+  75% {
+    transform: translateX(8px) translateY(-3px);
+  }
+}
+
+.glass-nav {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border-bottom: 1px solid rgba(0, 199, 190, 0.12);
+  box-shadow: 
+    0 4px 24px rgba(0, 199, 190, 0.1),
+    0 2px 8px rgba(38, 198, 218, 0.06);
+}
+
+/* Deliveroo-style Shadows */
+.shadow-deliveroo {
+  box-shadow: 
+    0 4px 20px rgba(0, 199, 190, 0.15),
+    0 2px 10px rgba(38, 198, 218, 0.1),
+    0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.shadow-deliveroo-hover {
+  box-shadow: 
+    0 12px 48px rgba(0, 199, 190, 0.25),
+    0 6px 20px rgba(38, 198, 218, 0.15),
+    0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Deliveroo-inspired Animations */
+@keyframes float-ocean {
+  0%, 100% { 
+    transform: translateY(0px) scale(1); 
+    opacity: 1;
+  }
+  50% { 
+    transform: translateY(-8px) scale(1.02); 
+    opacity: 0.9;
+  }
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes scale-bounce {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes color-wave {
+  0%, 100% {
+    color: #00bcd4;
+  }
+  25% {
+    color: #00c7be;
+  }
+  50% {
+    color: #26c6da;
+  }
+  75% {
+    color: #009688;
+  }
+}
+
+.animate-float-ocean {
+  animation: float-ocean 5s ease-in-out infinite;
+}
+
+.animate-gradient-shift {
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease-in-out infinite;
+}
+
+.animate-scale-bounce {
+  animation: scale-bounce 0.3s ease-out;
+}
+
+.animate-color-wave {
+  animation: color-wave 2s ease-in-out infinite;
+}
+
+/* Deliveroo-style Transitions */
+.transition-deliveroo {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.transition-deliveroo-slow {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Central Logo Container - Enhanced for Better Visibility */
+.logo-hero-container {
+  background: 
+    radial-gradient(circle at center, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.85) 70%, rgba(224, 247, 250, 0.6) 100%);
+  backdrop-filter: blur(24px);
+  border: 3px solid rgba(0, 199, 190, 0.2);
+  box-shadow: 
+    0 20px 60px rgba(0, 199, 190, 0.2),
+    0 8px 32px rgba(38, 198, 218, 0.15),
+    inset 0 2px 0 rgba(255, 255, 255, 0.8),
+    inset 0 -1px 0 rgba(0, 199, 190, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.logo-hero-container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: 
+    radial-gradient(circle at 30% 30%, rgba(0, 199, 190, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 70% 70%, rgba(38, 198, 218, 0.02) 0%, transparent 50%);
+  animation: gradient-shift 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.logo-hero-container:hover {
+  background: 
+    radial-gradient(circle at center, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.95) 70%, rgba(224, 247, 250, 0.8) 100%);
+  border-color: rgba(0, 199, 190, 0.35);
+  transform: scale(1.05);
+  box-shadow: 
+    0 32px 80px rgba(0, 199, 190, 0.25),
+    0 16px 48px rgba(38, 198, 218, 0.2),
+    inset 0 2px 0 rgba(255, 255, 255, 0.9),
+    inset 0 -1px 0 rgba(0, 199, 190, 0.15);
+}
+
+/* Footer Logo Container - Larger Size */
+.logo-footer-container {
+  background: 
+    radial-gradient(circle at center, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 80%, rgba(224, 247, 250, 0.7) 100%);
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(0, 199, 190, 0.3);
+  box-shadow: 
+    0 12px 40px rgba(0, 199, 190, 0.2),
+    0 6px 20px rgba(38, 198, 218, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.logo-footer-container:hover {
+  background: 
+    radial-gradient(circle at center, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.95) 80%, rgba(224, 247, 250, 0.85) 100%);
+  border-color: rgba(0, 199, 190, 0.5);
+  transform: scale(1.1);
+  box-shadow: 
+    0 20px 60px rgba(0, 199, 190, 0.3),
+    0 10px 30px rgba(38, 198, 218, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+}
+
+/* Deliveroo Category Buttons */
+.category-button {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(224, 247, 250, 0.6) 100%);
+  backdrop-filter: blur(16px);
+  border: 1.5px solid rgba(0, 199, 190, 0.2);
+  box-shadow: 
+    0 4px 20px rgba(0, 199, 190, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.category-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.category-button:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(224, 247, 250, 0.8) 100%);
+  border-color: rgba(0, 199, 190, 0.35);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 
+    0 12px 40px rgba(0, 199, 190, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.category-button:hover::before {
+  left: 100%;
+}
+
+.category-button-active {
+  background: linear-gradient(135deg, #00c7be 0%, #26c6da 50%, #009688 100%);
+  border: 1.5px solid rgba(0, 199, 190, 0.4);
+  color: white;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 
+    0 12px 40px rgba(0, 199, 190, 0.3),
+    0 6px 20px rgba(38, 198, 218, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  animation: gradient-shift 3s ease-in-out infinite;
+}
+
+/* Deliveroo Menu Cards */
+.menu-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.92) 0%, rgba(240, 253, 255, 0.8) 100%);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(0, 199, 190, 0.12);
+  box-shadow: 
+    0 6px 30px rgba(0, 199, 190, 0.1),
+    0 2px 12px rgba(38, 198, 218, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #00c7be, #26c6da, #009688);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  transform-origin: left;
+}
+
+.menu-card:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(224, 247, 250, 0.9) 100%);
+  border-color: rgba(0, 199, 190, 0.25);
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 
+    0 20px 60px rgba(0, 199, 190, 0.18),
+    0 8px 30px rgba(38, 198, 218, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.menu-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* Enhanced Badge Styles */
+.badge-modern {
+  background: linear-gradient(135deg, rgba(0, 199, 190, 0.12) 0%, rgba(38, 198, 218, 0.12) 100%);
+  border: 1px solid rgba(0, 199, 190, 0.25);
+  backdrop-filter: blur(8px);
+  color: #00695c;
+  font-weight: 500;
+}
+
+.badge-special {
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.15) 0%, rgba(129, 199, 132, 0.15) 100%);
+  border: 1px solid rgba(76, 175, 80, 0.3);
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+.badge-allergen {
+  background: linear-gradient(135deg, rgba(255, 193, 7, 0.12) 0%, rgba(255, 236, 179, 0.2) 100%);
+  border: 1px solid rgba(255, 193, 7, 0.25);
+  color: #ff8f00;
+  font-weight: 500;
+  font-size: 11px;
+  padding: 4px 8px;
+  backdrop-filter: blur(8px);
+}
+
+/* Enhanced Scrollbar */
+.scrollbar-ocean {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 199, 190, 0.4) rgba(224, 247, 250, 0.3);
+}
+
+.scrollbar-ocean::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.scrollbar-ocean::-webkit-scrollbar-track {
+  background: rgba(224, 247, 250, 0.3);
+  border-radius: 4px;
+}
+
+.scrollbar-ocean::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #00c7be, #26c6da);
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.scrollbar-ocean::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #009688, #00bcd4);
+}
+
+/* Price Animation */
+.price-highlight {
+  position: relative;
+  color: #00695c;
+  font-weight: 700;
+}
+
+.price-highlight::after {
+  content: '€';
+  margin-left: 2px;
+  color: #00c7be;
+  font-weight: 800;
+}
+
+.menu-card:hover .price-highlight {
+  animation: scale-bounce 0.3s ease-out;
+  color: #009688;
+}
+
+/* Gradient Text */
+.text-ocean-gradient {
+  background: linear-gradient(135deg, #00c7be 0%, #26c6da 50%, #009688 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Wave decorations */
+.wave-decoration {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 80'%3E%3Cpath d='M0,40 Q250,15 500,40 T1000,40 L1000,80 L0,80 Z' fill='rgba(0, 199, 190, 0.1)'/%3E%3C/svg%3E");
+  background-size: 1000px 80px;
+  background-repeat: repeat-x;
+  background-position: bottom;
+}
+
+/* Layout Optimization - Prevent Overflow and Clipping */
+.safe-area-inset {
+  padding-left: max(1.5rem, env(safe-area-inset-left));
+  padding-right: max(1.5rem, env(safe-area-inset-right));
+}
+
+.content-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (max-width: 640px) {
+  .content-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Prevent scroll issues and improve layout stability */
+.layout-stable {
+  contain: layout style;
+}
+
+.no-scroll-anchor {
+  overflow-anchor: none;
+}

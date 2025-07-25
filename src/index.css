@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+
+@tailwind utilities;
+
+@layer utilities {
+  .beach-header-bg {
+    background-color: #fff4a8cc !important; /* sabbia con trasparenza */
+    @apply backdrop-blur-xl border-b border-yellow-200;
+  }
+}
+
+/* Nasconde completamente la scrollbar */
+.no-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
