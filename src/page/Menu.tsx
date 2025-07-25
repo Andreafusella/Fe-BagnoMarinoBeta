@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { Tabs, TabsContent } from '@/components/ui/tabs';
 import { MapPin, Phone, Clock, Waves, Fish, Utensils, Anchor, Shell, Pizza, ChefHat, Sun, Soup, Salad, Flame, Sandwich, Sparkles } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
-import type { IAllergens } from '@/components/componentsPlus/Allergen';
 
 interface MenuItem {
   id: string;
