@@ -543,7 +543,7 @@ function Test() {
         />
         <div className="content-container py-6 lg:py-8 relative z-10">
           <div className="flex flex-col items-center justify-center space-y-4">
-
+            <div></div>
             {/* Central Logo - The Main Title */}
             <div className="relative group">
               <div className="logo-hero-container w-32 h-32 lg:w-40 lg:h-40 rounded-4xl p-2 transition-deliveroo-slow">
