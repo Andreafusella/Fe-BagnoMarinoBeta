@@ -483,11 +483,6 @@ const allergenSymbols = {
 
 function Test() {
 
-  const exampleAllergens : IAllergens = {
-    name: 'Glutine',
-    icon: '🐚'
-  }
-
   const [selectedCategory, setSelectedCategory] = useState('primi-carne');
   const [isLoaded, setIsLoaded] = useState(false);
 

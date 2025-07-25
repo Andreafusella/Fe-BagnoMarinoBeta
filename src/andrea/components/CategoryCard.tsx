@@ -4,7 +4,7 @@ interface ICategoryCardProps {
     icon: string;
 }
 
-const CategoryCard = ({id, name, icon} : ICategoryCardProps) => {
+const CategoryCard = ({name, icon} : ICategoryCardProps) => {
     return (
         <div className="rounded-2xl bg-white p-4">
             <h1>{name}</h1>
