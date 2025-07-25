@@ -20,7 +20,7 @@ const menuData: MenuItem[] = [
   {
     id: '1',
     name: 'Acqua 0,5L',
-    description: 'dssds',
+    description: '',
     price: 1.10,
     category: 'Bevande',
     available: true
@@ -1437,7 +1437,7 @@ const allergenSymbols = {
 };
 
 function Test() {
-  const [selectedCategory, setSelectedCategory] = useState('Bevande');
+  const [selectedCategory, setSelectedCategory] = useState('Antipasti Caldi - Pesce');
   const [isLoaded, setIsLoaded] = useState(false);
 
   const categories = [
