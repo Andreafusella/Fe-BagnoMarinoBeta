@@ -2,8 +2,6 @@ import { useState, useEffect } from 'react';
 import { Tabs, TabsContent } from '@/components/ui/tabs';
 import { MapPin, Phone, Clock, Waves, Fish, Utensils, Anchor, Shell, Pizza, ChefHat, Sun, Soup, Salad, Flame, Sandwich, Sparkles } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
-import CategoryCard from '@/components/componentsPlus/CategoryCard';
-import ItemCard from '@/components/componentsPlus/ItemCard';
 import type { IAllergens } from '@/components/componentsPlus/Allergen';
 
 interface MenuItem {

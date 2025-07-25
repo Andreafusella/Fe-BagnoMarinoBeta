@@ -8,31 +8,18 @@ import Test from './page/Menu';
 
 // Un unico componente App che gestisce sia il routing che l'autenticazione
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
   // Effetto per controllare lo stato di autenticazione all'avvio
   useEffect(() => {
     const token = localStorage.getItem('admin_token');
     if (token) {
-      setIsAuthenticated(true);
+      // Se il token esiste, l'utente è autenticato
+      // Qui potresti fare una chiamata API per verificare la validità del token
+      console.log('Utente autenticato');
     }
     setIsLoading(false);
   }, []);
-
-  // Funzione per gestire il login
-  const handleLogin = (success: boolean) => {
-    if (success) {
-      localStorage.setItem('admin_token', 'admin_authenticated');
-      setIsAuthenticated(true);
-    }
-  };
-
-  // Funzione per gestire il logout
-  const handleLogout = () => {
-    localStorage.removeItem('admin_token');
-    setIsAuthenticated(false);
-  };
 
   // Mostra una schermata di caricamento mentre si verifica l'autenticazione
   if (isLoading) {
