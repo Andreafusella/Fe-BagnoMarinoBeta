@@ -681,7 +681,7 @@ function Test() {
 
             {/* Enhanced Category Navigation - Properly Spaced */}
 
-            <CategoryCard title={'Test'} icon={"Apple"} numberPlate={4}></CategoryCard>
+            {/* <CategoryCard title={'Test'} icon={"Apple"} numberPlate={4}></CategoryCard> */}
             <div className="mb-16 lg:mb-20">
               <div className="mx-4 lg:mx-8 px-4 lg:px-6 py-10 lg:py-12">
                 <div className="overflow-x-auto pb-4 lg:pb-6 no-scrollbar">
@@ -730,7 +730,7 @@ function Test() {
               </div>
             </div>
 
-            <ItemCard title={'Pasta al ragù'} description={'Buonissima pasta al ragù'} price={10.00} allergens={[exampleAllergens]}></ItemCard>
+            {/* <ItemCard title={'Pasta al ragù'} description={'Buonissima pasta al ragù'} price={10.00} allergens={[exampleAllergens]}></ItemCard> */}
 
             {/* Menu Content - Improved Spacing */}
             {categories.map((category) => (
